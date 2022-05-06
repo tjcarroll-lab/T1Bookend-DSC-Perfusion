@@ -15,3 +15,16 @@
 4. When it finishes, perfusion results are stored in the 'Result_MSwcf2' folder (if using T1 quantification), or in the 'DSCanalysis' folder (if relative) as a .mat file.
 
 * See run_perf_script.m for example
+
+# Manual AIF Instructions
+
+
+1. Load the DSC dicoms by using "dsc = loadDSC('folder containing DSC')".
+
+2. Use 'AIFviewer.m' function to browse through DSC ("AIFviewer(dsc)").
+
+3. Click on the 'ROI AIF' button to draw an ROI, then click on 'Save ROI'.
+
+4. ROI will be saved in MATLAB workspace as 'aif_roi'. Rename this variable to 'aifmask' and save it as 'AIF_Mask_P001GE_M.mat' in the folder that contains the 'P001' folder.
+
+5. Draw an ROI for VOF and rename the new 'aif_roi' to 'veinmask'. And save it as 'Vein_Mask_P001GE_M.mat' in the same folder as above.
