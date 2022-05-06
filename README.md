@@ -16,7 +16,7 @@
 
 * See run_perf_script.m for example
 
-# Manual AIF Instructions
+# Manual AIF & VOF Instructions
 
 
 1. Load the DSC dicoms by using "dsc = loadDSC('folder containing DSC')".
