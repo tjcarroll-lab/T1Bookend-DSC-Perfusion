@@ -92,15 +92,15 @@ if nargin
             else
                 error('blah');
             end
-            perfdir = dir([perfpath '\*.dcm']);
-            header = dicominfo([perfpath '\1.dcm']);
+            perfdir = dir([perfpath '/*.dcm']);
+            header = dicominfo([perfpath '/1.dcm']);
             
             if isfield(header,'NumberOfTemporalPositions')
                 N_meas = header.NumberOfTemporalPositions;
                 N_slices = length(perfdir)/N_meas;
             else
                 for jj = 1:length(perfdir)
-                    header = dicominfo([perfpath '\' num2str(jj) '.dcm']);
+                    header = dicominfo([perfpath '/' num2str(jj) '.dcm']);
                     slclist(jj) = header.SliceLocation;
                 end
                 N_slices = length(unique(slclist));
@@ -508,10 +508,10 @@ if strmatch(Seqtarget,'GE')
                 %%
             end
         elseif namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' is being created now...']);
             %%
             images=cell(0);image_names=cell(0);
-            load ([targetpath '\AIFdata\' targetAIFfile]);
+            load ([targetpath '/AIFdata/' targetAIFfile]);
             %            [DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
             %            N_images = 15;
             N_images = N_slices; %Jessy (10/31/2008) %25 is correct Grady
@@ -541,12 +541,12 @@ elseif strmatch(Seqtarget,'SE')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_se')).name];
         fprintf('%s\n',['Checking Deconv for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact') & namefindinstrcut(DSCfiles,targetDSCfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' has been created...']);
             if strmatch(option,'Overwrite')
-                fprintf('%s\n',[targetpath '\' targetDSCfile ' is being overwritten...']);
+                fprintf('%s\n',[targetpath '/' targetDSCfile ' is being overwritten...']);
                 %%
                 images=cell(0);image_names=cell(0);
-                load ([targetpath '\AIFdata\' targetAIFfile]);
+                load ([targetpath '/AIFdata/' targetAIFfile]);
                 %[DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
                 N_images = N_slices;
                 [CBV_DSC,CBF_nSVD,CMTT_nSVD,TmaxMap_nSVD,dBATmap,Conc_map,CmtWM] = Calc_nSVD_Philips(targetpathDSC,N_images,ROIs.data.AIF,cutoffs_ROIs.AIF,N_meas);
@@ -556,10 +556,10 @@ elseif strmatch(Seqtarget,'SE')
                 %%
             end
         elseif namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' is being created now...']);
             %%
             images=cell(0);image_names=cell(0);
-            load ([targetpath '\AIFdata\' targetAIFfile]);
+            load ([targetpath '/AIFdata/' targetAIFfile]);
             %            [DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
             %            N_images = 15;
             N_images = N_slices; %Jessy (10/31/2008) %25 is correct Grady
@@ -589,12 +589,12 @@ elseif strmatch(Seqtarget,'all')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_perf')).name];
         fprintf('%s\n',['Checking Deconv for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact') & namefindinstrcut(DSCfiles,targetDSCfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' has been created...']);
             if strmatch(option,'Overwrite')
-                fprintf('%s\n',[targetpath '\' targetDSCfile ' is being overwritten...']);
+                fprintf('%s\n',[targetpath '/' targetDSCfile ' is being overwritten...']);
                 %%
                 images=cell(0);image_names=cell(0);
-                load ([targetpath '\AIFdata\' targetAIFfile]);
+                load ([targetpath '/AIFdata/' targetAIFfile]);
                 %[DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
                 N_images = N_slices;
                 [CBV_DSC,CBF_nSVD,CMTT_nSVD,TmaxMap_nSVD,dBATmap,Conc_map,CmtWM] = Calc_nSVD_Philips(targetpathDSC,N_images,ROIs.data.AIF,cutoffs_ROIs.AIF,N_meas);
@@ -627,12 +627,12 @@ elseif strmatch(Seqtarget,'all')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_se')).name];
         fprintf('%s\n',['Checking Deconv for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact') & namefindinstrcut(DSCfiles,targetDSCfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' has been created...']);
             if strmatch(option,'Overwrite')
-                fprintf('%s\n',[targetpath '\' targetDSCfile ' is being overwritten...']);
+                fprintf('%s\n',[targetpath '/' targetDSCfile ' is being overwritten...']);
                 %%
                 images=cell(0);image_names=cell(0);
-                load ([targetpath '\AIFdata\' targetAIFfile]);
+                load ([targetpath '/AIFdata/' targetAIFfile]);
                 %[DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
                 N_images = N_slices;
                 [CBV_DSC,CBF_nSVD,CMTT_nSVD,TmaxMap_nSVD,dBATmap,Conc_map,CmtWM] = Calc_nSVD_Philips(targetpathDSC,N_images,ROIs.data.AIF,cutoffs_ROIs.AIF,N_meas);
@@ -642,10 +642,10 @@ elseif strmatch(Seqtarget,'all')
                 %%
             end
         elseif namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' is being created now...']);
             %%
             images=cell(0);image_names=cell(0);
-            load ([targetpath '\AIFdata\' targetAIFfile]);
+            load ([targetpath '/AIFdata/' targetAIFfile]);
             %[DSC,headers,N_images] = ReadDICOMSeries(targetpathDSC,1);
             N_images = N_slices;
             [CBV_DSC,CBF_nSVD,CMTT_nSVD,TmaxMap_nSVD,dBATmap,Conc_map,CmtWM] = Calc_nSVD_Philips(targetpathDSC,N_images,ROIs.data.AIF,cutoffs_ROIs.AIF,N_meas);

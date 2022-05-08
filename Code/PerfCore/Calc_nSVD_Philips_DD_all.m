@@ -18,13 +18,13 @@ function [noDD,DD,CmtWM,etc,sigmap,VEINslice,veinmask,positionVein,n_Veinslice] 
 
 % read header of first image
 % header = dicominfo([path_DSC '\1.dcm']);
-header = dicominfo([path_DSC '\1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
+header = dicominfo([path_DSC '/1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
 Dt = (header.RepetitionTime)/1000; % from ms to sec
 echoTime = header.EchoTime;
 Wij_SVD = 0.2;
 %disp('1');
 % resize image
-tempimage = dicomread([path_DSC '\1.dcm']);
+tempimage = dicomread([path_DSC '/1.dcm']);
 %resize in the 3 cases where images are 112 %%%%Grady
 % if (size(tempimage,1)<=112) || (size(tempimage,2)<=112)
 %     tempimage = imresize(tempimage,128/112);

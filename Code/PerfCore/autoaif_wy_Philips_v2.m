@@ -171,7 +171,7 @@ flg_plot = 0;
 
 % % read basic info.
 % [DSCimage, header, N_Slices] = ReadDICOMSeries(path_DSC,1);
-header = dicominfo([path_DSC '\1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
+header = dicominfo([path_DSC '/1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
 
 
 %basic info for anonimized images

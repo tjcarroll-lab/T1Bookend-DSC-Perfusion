@@ -19,7 +19,7 @@ global currtime;
 % end
 % currtime = datestr(now,'yyyymmddHHMMSS');
 
-header = dicominfo([path_DSC '\1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
+header = dicominfo([path_DSC '/1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the dicom dictionary
 
 for  s = 1:N_Slices
     tempimage = double(Cells2Matrix(IA_ReadImages(path_DSC,(1+(s-1)*N_meas),(s*N_meas),1))); 
