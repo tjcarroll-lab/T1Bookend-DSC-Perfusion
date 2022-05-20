@@ -127,7 +127,6 @@ if nargin
             if ~exist(t1mappath,'dir')
                 mkdir(t1mappath);
             end
-            
             if exist(fullfile(targetpath,PN,'LL_EPI_POST'),'dir') && ~isempty(dir(fullfile(targetpath,PN,'LL_EPI_POST')))
                 t1mapping(targetpath,PN);
                 autoss(targetpath,PN);
@@ -135,6 +134,7 @@ if nargin
         autoaif(targetpath,PN,Seqtarget,N_slices,N_meas);
         deconvolution(targetpath,PN,Seqtarget,N_slices,N_meas);
         if exist(fullfile(targetpath,PN,'LL_EPI_POST'),'dir') && ~isempty(dir(fullfile(targetpath,PN,'LL_EPI_POST')))
+            disp('Running quantification')
             autoquantification(targetpath,PN,Seqtarget,N_slices,N_meas);
         end
         end
@@ -345,12 +345,12 @@ if strmatch(Seqtarget,'GE')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_perf')).name];
         fprintf('%s\n',['Checking AutoAIF for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' has been created...']);
             if strmatch(option,'Overwrite')
                 runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
             end
         else
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' is being created now...']);
             runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
         end
     end
@@ -360,12 +360,12 @@ elseif strmatch(Seqtarget,'SE')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_se')).name];
         fprintf('%s\n',['Checking AutoAIF for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' has been created...']);
             if strmatch(option,'Overwrite')
                 runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
             end
         else
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' is being created now...']);
             runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
         end
     end
@@ -375,12 +375,12 @@ elseif strmatch(Seqtarget,'all')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_perf')).name];
         fprintf('%s\n',['Checking AutoAIF for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' has been created...']);
             if strmatch(option,'Overwrite')
                 runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
             end
         else
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' is being created now...']);
             runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
         end
     end
@@ -389,12 +389,12 @@ elseif strmatch(Seqtarget,'all')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_se')).name];
         fprintf('%s\n',['Checking AutoAIF for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' has been created...']);
             if strmatch(option,'Overwrite')
                 runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
             end
         else
-            fprintf('%s\n',[targetpath '\' targetAIFfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetAIFfile ' is being created now...']);
             runitforautoaifcore(targetpath, targetpathDSC,targetAIFfile,N_slices,N_meas);
         end
     end
@@ -407,8 +407,8 @@ function runitforautoaifcore(targetpath,targetpathDSC,targetAIFfile,N_slices,N_m
 % YIJ 20180129: autoaif_wy_Philips_v2 used for data in paper
 global injectionNum;
 if injectionNum == 0 %|| injectionNum == 1
-    [targetpath '\AIFdata\' 'P001GE_AIF_A.mat']
-    tmpdata = load([targetpath '\AIFdata\' 'P001GE_AIF_A.mat']);
+    [targetpath '/AIFdata/' 'P001GE_AIF_A.mat']
+    tmpdata = load([targetpath '/AIFdata/' 'P001GE_AIF_A.mat']);
     %tmpdata = [];
     [signal_AIF,cutoffs_AIF,position_AIF,conc_AIF,dsc_stack,n_slice_AIF,AIF,position_slice_AIF,aifmask] = autoaif_wy_Philips_v2([targetpathDSC],N_slices,N_meas,tmpdata);
 else
@@ -485,16 +485,16 @@ tmpinj = 'P001';
 if strmatch(Seqtarget,'GE')
     targetAIFfile = [PN 'GE_AIF_A.mat'];
     if injectionNum == tmpind
-        targetAIFfile = [tmpinj 'GE_AIF_A.mat']
+        targetAIFfile = [tmpinj 'GE_AIF_A.mat'];
     end
     targetDSCfile = [PN 'GE_DSC_A.mat'];
     if namefindinstrcut(Seqfiles,'ep2d_perf')
         targetpathDSC = [pathPN '/' Seqfiles(namefindinstrcut(Seqfiles,'ep2d_perf')).name];
         fprintf('%s\n',['Checking Deconv for ' PN ' : ']);
         if namefindinstrcut(AIFfiles,targetAIFfile,'exact') & namefindinstrcut(DSCfiles,targetDSCfile,'exact')
-            fprintf('%s\n',[targetpath '\' targetDSCfile ' has been created...']);
+            fprintf('%s\n',[targetpath '/' targetDSCfile ' has been created...']);
             if strmatch(option,'Overwrite')
-                fprintf('%s\n',[targetpath '\' targetDSCfile ' is being overwritten...']);
+                fprintf('%s\n',[targetpath '/' targetDSCfile ' is being overwritten...']);
                 %%
                 images=cell(0);image_names=cell(0);
                 load ([targetpath '\AIFdata\' targetAIFfile]);

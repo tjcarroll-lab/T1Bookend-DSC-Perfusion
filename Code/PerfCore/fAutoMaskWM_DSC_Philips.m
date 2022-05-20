@@ -18,7 +18,7 @@ function [mask, nslice, index] = fAutoMaskWM_DSC_Philips(path1,path2,maskSS,Nsli
 
 mask = zeros(size(maskSS));
 % info1 = dicominfo([path1 '\1.dcm']);
-info1 = dicominfo([path1 '\1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the Matlab dicom dictionary
+info1 = dicominfo([path1 '/1.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the Matlab dicom dictionary
 SlicePosition1 = info1.SliceLocation;   
 %SlicePosition1 = 18;   %Manually enter LL-EPI slice location
 Size1 = double([info1.Rows  info1.Columns]);
@@ -31,7 +31,7 @@ clear info1
 SlicePosition2 = zeros(1,Nslices);
 for i = 1:Nslices
 %     info2 = dicominfo([path2 '\' num2str(i) '.dcm']);
-    info2 = dicominfo([path2 '\' num2str(1+(i-1)*N_meas) '.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the Matlab dicom dictionary
+    info2 = dicominfo([path2 '/' num2str(1+(i-1)*N_meas) '.dcm'],'Dictionary','dicom-dict.txt'); %Upon the upgrade of the Matlab dicom dictionary
     SlicePosition2(i) = info2.SliceLocation;
 end
 
