@@ -36,9 +36,9 @@ global currtime;
 %     caseid = caseid{end-3};
 %     currtime = datestr(now,'yyyymmddHHMMSS');
     
-if exist([glblTargetPath '\AIF_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
+if exist([glblTargetPath '/AIF_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
   
-    aifdata = load([glblTargetPath '\AIF_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
+    aifdata = load([glblTargetPath '/AIF_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
     aifmask = aifdata.aifmask;
     
     if size(aifmask,3) ~= 1 && size(aifmask,3) ~= N_Slices
@@ -66,7 +66,7 @@ if exist([glblTargetPath '\AIF_Mask_P' sprintf('%03d',injectionNum) seqType '.ma
     % Spatially smooth DSC (xy and z)
     Images = smoothDSC(Images);
     
-    header = dicominfo([path_DSC '\1.dcm'],'Dictionary','dicom-dict.txt');
+    header = dicominfo([path_DSC '/1.dcm'],'Dictionary','dicom-dict.txt');
     TR = header.RepetitionTime; %ms    
     TE = header.EchoTime;  %ms
 

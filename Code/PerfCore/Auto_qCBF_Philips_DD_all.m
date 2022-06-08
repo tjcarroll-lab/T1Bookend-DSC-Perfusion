@@ -727,10 +727,10 @@ for i = 1:length(targetDSCfile)
                 runitforquantificationcore(targetpath,PN,targetdscfile,targetresultfile,N_slices,N_meas);
             end
         elseif namefindinstrcut(Resultfiles,[PN 'GE_PA.mat'],'exact')
-            fprintf('%s\n',[targetpath '\' [PN 'GE_PA.mat'] ' has been created...']);
+            fprintf('%s\n',[targetpath '/' [PN 'GE_PA.mat'] ' has been created...']);
             
         else
-            fprintf('%s\n',[targetpath '\' targetresultfile ' is being created now...']);
+            fprintf('%s\n',[targetpath '/' targetresultfile ' is being created now...']);
             runitforquantificationcore(targetpath,PN,targetdscfile,targetresultfile,N_slices,N_meas);
         end
     end

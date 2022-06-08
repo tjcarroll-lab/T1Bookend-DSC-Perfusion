@@ -11,14 +11,15 @@ global seqType;
 global MANUAL;
 global caseid;
 global currtime;
-if exist([glblTargetPath '\Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
+if exist([glblTargetPath '/Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
+    disp('Using handdrawn vein mask')
     
 %     caseid = split(path_DSC,{'\','/'});
 %     caseid = caseid{end-3};
 %     currtime = datestr(now,'yyyymmddHHMMSS');
     
     % Get vein mask and vein signal
-    veindata = load([glblTargetPath '\Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
+    veindata = load([glblTargetPath '/Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
     veinmask = veindata.veinmask;
     %path_LLEPI = [glblTargetPath '\P' sprintf('%03d',injectionNum) '\IR_LL_EPI_PRE'];
     %path_DSC = [glblTargetPath '\P' sprintf('%03d',injectionNum) '\ep2d_perf'];
@@ -178,6 +179,7 @@ figure;imshow(dscstack(:,:,1),[],'initialmagnification','fit');
 %exportgraphics(gca, ['..\images\autovein debug\' currtime '_' caseid '_veinloc(manu).jpg'], 'resolution', 300);
 
 else
+    disp('does NOT know vein is there...')
     if MANUAL
         error('Cant find VEIN mask for finding vein');
     else
