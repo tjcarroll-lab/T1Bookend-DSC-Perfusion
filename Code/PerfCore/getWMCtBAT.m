@@ -8,12 +8,12 @@ function [ wm_signal, CmtWM, nslice ] = getWMCtBAT( path_DSC,N_slices,N_meas )
 global glblTargetPath;
 global injectionNum;
 global seqType;
-if exist([glblTargetPath '\WM_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
-    wmdata = load([glblTargetPath '\WM_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
+if exist([glblTargetPath '/WM_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
+    wmdata = load([glblTargetPath '/WM_Mask_P' sprintf('%03d',injectionNum) seqType '.mat']);
     WM_SS = wmdata.WM_SS;
-    aifdata = load([glblTargetPath '\AIFdata\P' sprintf('%03d',injectionNum) seqType(1:2) '_AIF_A.mat']);
+    aifdata = load([glblTargetPath '/AIFdata/P' sprintf('%03d',injectionNum) seqType(1:2) '_AIF_A.mat']);
     %tmpind = strfind(path_DSC,'\');
-    path_LLEPI = [glblTargetPath '\P' sprintf('%03d',injectionNum) '\IR_LL_EPI_PRE'];
+    path_LLEPI = [glblTargetPath '/P' sprintf('%03d',injectionNum) '/LL_EPI_PRE'];
     if isfield(wmdata,'nslice')
         nslice = wmdata.nslice;
     else
