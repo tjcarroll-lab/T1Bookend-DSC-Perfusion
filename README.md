@@ -1,5 +1,7 @@
 # Perfusion instructions 
 
+This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps.
+
 1. The perfusion code expects the perfusion dicoms to be in a specific directory structure as follows:
    - Case1/ (the name of this folder is arbitrary)
       - P001/ (the code looks for P### folders)
