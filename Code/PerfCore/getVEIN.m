@@ -12,7 +12,7 @@ global MANUAL;
 global caseid;
 global currtime;
 if exist([glblTargetPath '/Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.mat'],'file')
-    disp('Using handdrawn vein mask')
+    disp('Using hand-drawn vein mask')
     
 %     caseid = split(path_DSC,{'\','/'});
 %     caseid = caseid{end-3};
@@ -27,12 +27,13 @@ if exist([glblTargetPath '/Vein_Mask_P' sprintf('%03d',injectionNum) seqType '.m
         error('vein mask and dsc Nslices do not match');
     end
     if size(veinmask,3) ~= 1
-        [tmpi,tmpj,tmpz] = ind2sub(size(veinmask),find(veinmask,1));
+        [~,~,tmpz] = ind2sub(size(veinmask),find(veinmask,1));
         %veinmask = veinmask(:,:,tmpz);
         if isempty(t1slc)
             t1slc = tmpz;
         else
             if tmpz ~= t1slc
+                fprintf('vein: %.0f\nt1: %.0f\n', tmpz, t1slc)
                 error('vein slc and t1 slc do not match');
             end
         end

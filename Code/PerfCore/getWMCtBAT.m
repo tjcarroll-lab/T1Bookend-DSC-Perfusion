@@ -17,15 +17,18 @@ if exist([glblTargetPath '/WM_Mask_P' sprintf('%03d',injectionNum) seqType '.mat
     if isfield(wmdata,'nslice')
         nslice = wmdata.nslice;
     else
-        [mask, nslice, match_index] = fAutoMaskWM_DSC_Philips(path_LLEPI,path_DSC,WM_SS,N_slices,N_meas);
+        %[mask, nslice, match_index] = fAutoMaskWM_DSC_Philips(path_LLEPI,path_DSC,WM_SS,N_slices,N_meas);
+        [WM_SS, nslice, match_index] = fAutoMaskWM_DSC_Philips(path_LLEPI,path_DSC,WM_SS,N_slices,N_meas);
     end
+
     dscslice = aifdata.ROIs.dsc_stack{nslice};
     wm_signal = zeros(1,size(dscslice,3));
+    size(dscslice)
     for ii = 1:size(dscslice,1)
         for jj = 1:size(dscslice,2)
             if WM_SS(ii,jj)
-                %wm_signal = wm_signal + freqfilter(reshape(smooth(dscslice(ii,jj,:),5,'sgolay',3),1,size(dscslice,3)),'low',10);
-                wm_signal = wm_signal + reshape(smooth(dscslice(ii,jj,:),.05,'sgolay',3),[1 size(dscslice,3)]);
+                wm_signal = wm_signal + freqfilter(reshape(smooth(dscslice(ii,jj,:),5,'sgolay',3),1,size(dscslice,3)),'low',10);
+                %wm_signal = wm_signal + reshape(smooth(dscslice(ii,jj,:),.05,'sgolay',3),[1 size(dscslice,3)]);
             end
         end
     end
