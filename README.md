@@ -22,7 +22,7 @@ This code takes repositories and returns both delay and dispersion correct and n
 
 * See run_perf_script.m for example
 
-# Manual AIF & VOF Instructions
+## Manual AIF & VOF Instructions
 
 1. Load the DSC dicoms by using "dsc = loadDSC('folder containing DSC')".
 
@@ -42,9 +42,9 @@ Get data from the scanner, then run DicomSort.m on the downloaded DICOM director
 Then need to sort the perfusion code, and rename the folders. There is a python notebook I have for that (DSCPerfusionSorter_WIP.ipynb) but can also write it yourself or use Tim/Yong's code. 
 Then... 
 
-# Drawing AIF and Vein (VOF)
+### Drawing AIF and Vein (VOF)
 
-# Example Code
+### Example Code
 >> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code'
 >> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/Other'
 >> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/PerfCore'
@@ -63,18 +63,20 @@ Now also draw the Vein mask
 >> veinmask = aif_roi;
 >> save ('/Users/neuroimaging/Desktop/Vein_Mask_P001GE_M.mat', 'veinmask') %savemask
 
-Then Run qCBF post-processing
+### Then Run qCBF post-processing
 >> Auto_qCBF_Philips_DD_all('/Users/neuroimaging/Desktop/Data/Tabitha_Example/')
 
+### White Matter Mask
 Once the T1 map is done, exit and draw a white matter mask
 >> load('/Users/neuroimaging/Desktop/DATA/Tabitha_Example/T1mapping/P001_T1map.mat')
 >> figure; imshow(images.t1.T1map_pre - images.t1.T1map_post,[0 50]),colormap(gca,'jet'),colorbar, truesize([500 500])
 >> WM_SS = roipoly;
 >> save ('/Users/neuroimaging/Desktop/WM_Mask_P001GE_M.mat', 'WM_SS')
 
-Then run final time
+### Then run final time
 >> Auto_qCBF_Philips_DD_all('/Users/neuroimaging/Desktop/Data/Tabitha_Example/')
 
+### Results Viewing
 Results can be viewed with imshow, or if you'd like to view it as a volume can use imagestack. 
 >> load(‘/Users/neuroimaging/Desktop/DATA/Tabitha_Example/Result_MSwcf2/P001GE_M.mat’)
 >> imagestack(images.DD.qCBF_SVD)
