@@ -1,6 +1,6 @@
 # Perfusion instructions 
 
-This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps.
+This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan.
 
 
 ## Pre-Processing preparatory requirements
