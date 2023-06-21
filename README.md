@@ -50,22 +50,22 @@ Then...
 ### Drawing AIF and Vein (VOF)
 
 ### Example Code
->> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code'
->> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/Other'
->> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/PerfCore'
->> dcmpath = '/Users/neuroimaging/Desktop/DATA/Tabitha_Example/P001/';
->> ep2d_dcmpath = [dcmpath, '/ep2d_perf'];
->> dsc = loadDSC(ep2d_dcmpath);
+>> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code'\
+>> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/Other'\
+>> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/PerfCore'\
+>> dcmpath = '/Users/neuroimaging/Desktop/DATA/Tabitha_Example/P001/';\
+>> ep2d_dcmpath = [dcmpath, '/ep2d_perf'];\
+>> dsc = loadDSC(ep2d_dcmpath);\
 >> AIFviewer(dsc);
 
 Now draw the AIF mask
->> AIFviewer(dsc);
->> aifmask = aif_roi; %rename
+>> AIFviewer(dsc);\
+>> aifmask = aif_roi; %rename\
 >> save ('/Users/neuroimaging/Desktop/AIF_Mask_P001GE_M.mat', 'aifmask') %savemask
 
 Now also draw the Vein mask
->> AIFviewer(dsc);
->> veinmask = aif_roi;
+>> AIFviewer(dsc);\
+>> veinmask = aif_roi;\
 >> save ('/Users/neuroimaging/Desktop/Vein_Mask_P001GE_M.mat', 'veinmask') %savemask
 
 ### Then Run qCBF post-processing
@@ -73,9 +73,9 @@ Now also draw the Vein mask
 
 ### White Matter Mask
 Once the T1 map is done, exit and draw a white matter mask
->> load('/Users/neuroimaging/Desktop/DATA/Tabitha_Example/T1mapping/P001_T1map.mat')
->> figure; imshow(images.t1.T1map_pre - images.t1.T1map_post,[0 50]),colormap(gca,'jet'),colorbar, truesize([500 500])
->> WM_SS = roipoly;
+>> load('/Users/neuroimaging/Desktop/DATA/Tabitha_Example/T1mapping/P001_T1map.mat')\
+>> figure; imshow(images.t1.T1map_pre - images.t1.T1map_post,[0 50]),colormap(gca,'jet'),colorbar, truesize([500 500])\
+>> WM_SS = roipoly;\
 >> save ('/Users/neuroimaging/Desktop/WM_Mask_P001GE_M.mat', 'WM_SS')
 
 ### Then run final time
@@ -83,5 +83,5 @@ Once the T1 map is done, exit and draw a white matter mask
 
 ### Results Viewing
 Results can be viewed with imshow, or if you'd like to view it as a volume can use imagestack. 
->> load(‘/Users/neuroimaging/Desktop/DATA/Tabitha_Example/Result_MSwcf2/P001GE_M.mat’)
+>> load(‘/Users/neuroimaging/Desktop/DATA/Tabitha_Example/Result_MSwcf2/P001GE_M.mat’)\
 >> imagestack(images.DD.qCBF_SVD)
