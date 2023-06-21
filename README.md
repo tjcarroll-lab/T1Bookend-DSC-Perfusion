@@ -1,4 +1,4 @@
-# Perfusion instructions 
+# DSC Perfusion instructions (mac)
 
 This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan.
 
