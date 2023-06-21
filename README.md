@@ -3,8 +3,8 @@
 This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan.
 
 Note: for a new session in matlab, remember to addpath. 
-e.g. addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/PerfCore'
-addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/Other'
+e.g. >> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/PerfCore'\
+>> addpath '/Users/neuroimaging/Desktop/MR-Code/DSC_code/Perfusion/Code/Other'
 
 
 ## Pre-Processing preparatory requirements
