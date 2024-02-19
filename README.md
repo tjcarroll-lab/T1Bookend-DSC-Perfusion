@@ -1,6 +1,8 @@
 # DSC Perfusion instructions (mac)
 
-This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan.
+This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan. It has been used in papers including: 
+
+1) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. doi: 10.1002/mrm.27669. Epub 2019 Feb 8. PMID: 30737833; PMCID: PMC6435411.
 
 Note: for a new session in matlab, remember to addpath. 
 e.g. 
