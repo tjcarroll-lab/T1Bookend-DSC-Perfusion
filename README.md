@@ -1,8 +1,8 @@
+# T1 Bookend DSC Perfusion with and without delay and dispersion correction
+
 # DSC Perfusion instructions (mac)
 
-This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan. It has been used in papers including: 
-
-1) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. doi: 10.1002/mrm.27669. Epub 2019 Feb 8. PMID: 30737833; PMCID: PMC6435411.
+This code takes repositories and returns both delay and dispersion correct and non delay and dispersion corrected CBF maps for a human scan. 
 
 Note: for a new session in matlab, remember to addpath. 
 e.g. 
@@ -83,7 +83,20 @@ Once the T1 map is done, exit and draw a white matter mask
 ### Then run final time
 >> Auto_qCBF_Philips_DD_all('/Users/neuroimaging/Desktop/Data/Tabitha_Example/')
 
+
 ### Results Viewing
 Results can be viewed with imshow, or if you'd like to view it as a volume can use imagestack. 
 >> load(‘/Users/neuroimaging/Desktop/DATA/Tabitha_Example/Result_MSwcf2/P001GE_M.mat’)\
 >> imagestack(images.DD.qCBF_SVD)
+
+
+# This code was developed in TJC lab. This version was compiled by ML and YJ. It has been used in papers including: 
+
+1) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. doi: 10.1002/mrm.27669. Epub 2019 Feb 8. PMID: 30737833; PMCID: PMC6435411.
+
+2) Christoforidis GA, Saadat N, Liu M, et alEffect of early Sanguinate (PEGylated carboxyhemoglobin bovine) infusion on cerebral blood flow to the ischemic core in experimental middle cerebral artery occlusionJournal of NeuroInterventional Surgery 2022;14:1253-1257.
+
+3) Dimov AV, Christoforidis GA, Saadat N, et al. QSM in canine model of acute cerebral ischemia: A pilot study. Magn Reson Med. 2020; 85: 1602–1610. https://doi.org/10.1002/mrm.28498
+
+4) Liu M, Saadat N, Jeong YI, et alAugmentation of perfusion with simultaneous vasodilator and inotropic agents in experimental acute middle cerebral artery occlusion: a pilot studyJournal of NeuroInterventional Surgery 2023;15:e69-e75.
+
