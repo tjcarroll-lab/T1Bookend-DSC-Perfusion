@@ -90,7 +90,8 @@ Results can be viewed with imshow, or if you'd like to view it as a volume can u
 >> imagestack(images.DD.qCBF_SVD)
 
 
-# This code was developed in TJC lab. This version was compiled by ML and YJ. It has been used in papers including: 
+# Citations
+This code was developed in TJC lab. This version was compiled by ML and YJ. It has been used in papers including: 
 
 1) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. doi: 10.1002/mrm.27669. Epub 2019 Feb 8. PMID: 30737833; PMCID: PMC6435411.
 
