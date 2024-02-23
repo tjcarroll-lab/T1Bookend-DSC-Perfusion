@@ -1,5 +1,5 @@
 # T1 Bookend DSC Perfusion with and without delay and dispersion correction
-Open source code for use. Please cite relevant publications provided at the bottom of these instructions, as well as the open source repository here.
+Open source code for use. Please cite relevant publications provided at the bottom of these instructions, as well as the open source repository here, as needed.
 
 # DSC Perfusion instructions (mac)
 
