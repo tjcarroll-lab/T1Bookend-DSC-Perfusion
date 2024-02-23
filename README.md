@@ -1,4 +1,5 @@
 # T1 Bookend DSC Perfusion with and without delay and dispersion correction
+Open source code for use. Please cite relevant publications provided at the bottom of these instructions, as well as the open source repository here.
 
 # DSC Perfusion instructions (mac)
 
@@ -93,11 +94,15 @@ Results can be viewed with imshow, or if you'd like to view it as a volume can u
 # Citations
 This code was developed in TJC lab. This version was compiled by ML and YJ, of you use this software, please cite it as shown in citation.cff file. It has been used in papers including: 
 
-1) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. doi: 10.1002/mrm.27669. Epub 2019 Feb 8. PMID: 30737833; PMCID: PMC6435411.
+1) Carroll, TJ, Horowitz, S, SHin W, Mouannes J, Sawlani R, Ali S, Raizer J, Futterer S. Quantification of cerebral perfusion using the "bookend technique": an evaluation in CNS tumors. Magn Reson Med. 2008.  https://doi.org/10.1016/j.mri.2008.04.010. 
 
-2) Christoforidis GA, Saadat N, Liu M, et alEffect of early Sanguinate (PEGylated carboxyhemoglobin bovine) infusion on cerebral blood flow to the ischemic core in experimental middle cerebral artery occlusionJournal of NeuroInterventional Surgery 2022;14:1253-1257.
+2) Srour JM, Shin W, Shah S, Sen A, Carroll TJ. SCALE-PWI: A Pulse Sequence for Absolute Quantitative Cerebral Perfusion Imaging. Journal of Cerebral Blood Flow & Metabolism. 2011;31(5):1272-1282. doi:10.1038/jcbfm.2010.215
 
-3) Dimov AV, Christoforidis GA, Saadat N, et al. QSM in canine model of acute cerebral ischemia: A pilot study. Magn Reson Med. 2020; 85: 1602–1610. https://doi.org/10.1002/mrm.28498
+3) Jeong YI, Christoforidis GA, Saadat N, Kawaji K, Cantrell CG, Roth S, Niekrasz M, Carroll TJ. Absolute quantitative MR perfusion and comparison against stable-isotope microspheres. Magn Reson Med. 2019 Jun;81(6):3567-3577. https://doi.org/10.1002/mrm.27669.
 
-4) Liu M, Saadat N, Jeong YI, et alAugmentation of perfusion with simultaneous vasodilator and inotropic agents in experimental acute middle cerebral artery occlusion: a pilot studyJournal of NeuroInterventional Surgery 2023;15:e69-e75.
+4) Christoforidis GA, Saadat N, Liu M, et al. Effect of early Sanguinate (PEGylated carboxyhemoglobin bovine) infusion on cerebral blood flow to the ischemic core in experimental middle cerebral artery occlusion. Journal of NeuroInterventional Surgery 2022;14:1253-1257. https://doi.org/10.1136/neurintsurg-2021-018239
+
+5) Dimov AV, Christoforidis GA, Saadat N, et al. QSM in canine model of acute cerebral ischemia: A pilot study. Magn Reson Med. 2020; 85: 1602–1610. https://doi.org/10.1002/mrm.28498
+
+6) Liu M, Saadat N, Jeong YI, et al. Augmentation of perfusion with simultaneous vasodilator and inotropic agents in experimental acute middle cerebral artery occlusion: a pilot study. Journal of NeuroInterventional Surgery 2023;15:e69-e75. https://doi.org/10.1136/jnis-2022-018990
 
